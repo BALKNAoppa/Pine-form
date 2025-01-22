@@ -21,8 +21,7 @@ const StepOne = (props) => {
         }
         handleError(errors);
     };
-
-
+    
     return (
         <div class="w-screen h-screen flex items-center justify-center bg-gray-100">
             <div class="w-[480px] h-[655px] rounded-lg p-8 bg-white flex flex-col justify-between">
