@@ -16,8 +16,8 @@ const StepTwo = (props) => {
                     </div>
                 </div>
                 <div class="flex justify-between">
-                    <button class="w-[128px] h-[44px] bg-white  text-black rounded-lg border border-[rgba(203,213,225,1)] " onClick={handleBackStep} > Back</button>
-                    <button class="w-[280px] h-[44px] bg-black  text-white rounded-lg " onClick={handleNextStep} >Next</button>
+                    <button class="w-[128px] h-[44px] bg-white  text-black rounded-lg border border-[rgba(203,213,225,1)] " onClick={handleBackStep} > <span>&lt;</span> Back</button>
+                    <button class="w-[280px] h-[44px] bg-black  text-white rounded-lg " onClick={handleNextStep} > Continue 2/3 <span>&gt;</span></button>
                 </div>
             </div>
         </div>

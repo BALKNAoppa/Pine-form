@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react"
+import React, { useState } from "react"
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import FormFinished from "./FormFinished"
-import { useState } from "react";
 
 const MultiStepForm = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -14,7 +13,28 @@ const MultiStepForm = () => {
         lastName: "",
         userName: "",
         phoneNumber: "",
+        password: "",
+        confirmPassword: "",
+        dateBirth: "",
+        profileImg: "",
     });
+    const [formError, setFormError] = useState({
+        firstName: "",
+        lastName: "",
+        userName: "",
+        phoneNumber: "",
+        password: "",
+        confirmPassword: "",
+        dateBirth: "",
+        profileImg: "",
+    });
+    const handleError = (errors) => {
+        setFormError((prev) => ({ ...prev, ...errors }));
+    }
+
+    const clearError = (name) => {
+        setFormError((prev) => ({ ...prev, [name]: "" }));
+    }
 
     const Step = [StepOne, StepTwo, StepThree, FormFinished][currentStep];
 
@@ -33,7 +53,7 @@ const MultiStepForm = () => {
 
     return (
         <div>
-            <Step handleNextStep={handleNextStep} handleBackStep={handleBackStep}/>
+            <Step errors={formError} formValue={formValue} setFormValue={setFormValue} handleError={handleError} clearError={clearError} handleNextStep={handleNextStep} handleBackStep={handleBackStep} />
         </div>
     )
 };
