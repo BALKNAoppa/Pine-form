@@ -1,6 +1,7 @@
 import React from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
 import { isStepOneValid } from "@/utils/stepOneValidation";
+import FormInput from "./FormInput";
 const StepOne = (props) => {
   const {
     handleNextStep,
@@ -44,56 +45,24 @@ const StepOne = (props) => {
           </div>
 
           <div className="w-full flex flex-col justify-between my-2">
-            <div className="w-full gap-2 flex flex-col mb-3">
-              <label className="font-inter text-sm font-semibold leading-4 tracking-tight text-lef text-gray-700">
-                Firstname <span className="text-red-500">*</span>
-              </label>
-              <input
-                placeholder="Your firstname"
-                name={"firstName"}
-                className={`${
-                  errors.firstName.length > 0 ? "" : ""
-                }, border border-gray-300 rounded-lg w-full p-2 focus:border-blue-500 focus:outline-none focus:border`}
-                onChange={handleChange}
-              />
-              {errors.firstName.length > 0 && (
-                <p className="text-red-500">{errors.firstName}</p>
-              )}
-            </div>
-
-            <div className=" w-full gap-2 flex flex-col mb-3">
-              <label className="font-inter text-sm font-semibold leading-4 tracking-tight text-lef text-gray-700">
-                Lastname <span className="text-red-500">*</span>
-              </label>
-              <input
-                placeholder="Your lastname"
-                name={"lastName"}
-                className={`${
-                  errors.lastName.length > 0 ? "" : ""
-                }, border border-gray-300 rounded-lg w-full p-2 focus:border-blue-500 focus:outline-none focus:border`}
-                onChange={handleChange}
-              />
-              {errors.lastName.length > 0 && (
-                <p className="text-red-500">{errors.lastName}</p>
-              )}
-            </div>
-
-            <div className="w-full gap-2 flex flex-col mb-3">
-              <label className="font-inter text-sm font-semibold leading-4 tracking-tight text-lef text-gray-700">
-                Username <span className="text-red-500">*</span>
-              </label>
-              <input
-                placeholder="Your username"
-                name={"userName"}
-                className={`${
-                  errors.userName.length > 0 ? "" : ""
-                }, border border-gray-300 rounded-lg w-full p-2 focus:border-blue-500 focus:outline-none focus:border`}
-                onChange={handleChange}
-              />
-              {errors.userName.length > 0 && (
-                <p className="text-red-500">{errors.userName}</p>
-              )}
-            </div>
+            <FormInput
+              title={"First Name"}
+              name={"firstName"}
+              handleChange={handleChange}
+              errors={errors}
+            />
+            <FormInput
+              title={"Last Name"}
+              name={"lastName"}
+              handleChange={handleChange}
+              errors={errors}
+            />
+            <FormInput
+              title={"User Name"}
+              name={"userName"}
+              handleChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
         <button
@@ -101,7 +70,7 @@ const StepOne = (props) => {
           onClick={handleFormNextStep}
         >
           {" "}
-          Continue 1/3 &nbsp; {" "}
+          Continue 1/3 &nbsp;{" "}
           <span className="text-[16px] font-medium leading-[24px] tracking-[-0.01em] text-left">
             &gt;
           </span>{" "}
