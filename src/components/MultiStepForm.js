@@ -29,6 +29,7 @@ const MultiStepForm = () => {
         profileImg: "",
     });
     const handleError = (errors) => {
+        
         setFormError((prev) => ({ ...prev, ...errors }));
     }
 

@@ -12,7 +12,7 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        manrope: ['Manrope', 'sans-serif']
+        inter: ['Inter', 'sans-serif']
       }
     },
   },
