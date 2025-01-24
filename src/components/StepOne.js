@@ -1,7 +1,7 @@
 import React from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
 import { isStepOneValid } from "@/utils/stepOneValidation";
-import FormInput from "./FormInput";
+import FormInput from "./FormInputStepOne";
 const StepOne = (props) => {
   const {
     handleNextStep,

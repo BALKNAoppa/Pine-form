@@ -1,4 +1,5 @@
 import React from "react";
+import FormInputStepTwo from "./FormInputStepTwo";
 
 const FormInput = (props) => {
     const {title, name, handleChange, errors} = props;
@@ -21,4 +22,4 @@ const FormInput = (props) => {
       </div>
     )
 };
-export default FormInput;
+export default FormInput ;

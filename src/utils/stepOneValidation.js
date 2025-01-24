@@ -1,7 +1,7 @@
 export const isStepOneValid = (data) => {
   const { firstName, lastName, userName } = data;
   const errors = {};
-  const isValid = true;
+  let isValid = true;
 
   if (firstName.length <= 1) {
     errors.firstName = "Нэрээ оруулна уу";

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
-import { isStepOneValid } from "@/utils/stepOneValidation";
-import FormInput from "./FormInput";
+import { isStepTwoValid } from "@/utils/StepTwoValidation";
+import FormInput from "./FormInputStepTwo";
 
 const StepTwo = (props) => {
   const {
@@ -14,23 +14,25 @@ const StepTwo = (props) => {
     clearError,
   } = props;
 
+
   const handleChange = (event) => {
-      const { name, value } = event.target;
-      setFormValue((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-      clearError(name);
-    };
-  
-    const handleFormNextStep = () => {
-      const { isValid, errors } = isStepOneValid(formValue);
-  
-      if (isValid) {
-        handleNextStep();
-      }
-      handleError(errors);
-    };
+    const { name, value } = event.target;
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    clearError(name);
+  };
+
+  const handleFormNextStep = () => {
+    const { isValid, errors } = isStepTwoValid(formValue);
+    console.log(errors);
+    if (isValid) {
+      handleNextStep();
+    }
+    handleError(errors);
+  };
+
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
@@ -46,7 +48,33 @@ const StepTwo = (props) => {
               Please provide all current information accurately.
             </p>
           </div>
-          <FormInput />
+          <FormInput
+            title={"Email"}
+            name={"email"}
+            handleChange={handleChange}
+            errors={errors}
+          />
+          <FormInput
+            title={"Phone number"}
+            name={"phoneNumber"}
+            type="number"
+            handleChange={handleChange}
+            errors={errors}
+          />
+          <FormInput
+            title={"Password"}
+            name={"password"}
+            handleChange={handleChange}
+            errors={errors}
+            type="password"
+          />
+          <FormInput
+            title={"Confirm Password"}
+            name={"confirmPassword"}
+            handleChange={handleChange}
+            type="password"
+            errors={errors}
+          />
         </div>
         <div className="flex justify-between">
           <button
@@ -58,7 +86,7 @@ const StepTwo = (props) => {
           </button>
           <button
             className="w-[280px] h-[44px] bg-black  text-white rounded-lg "
-            onClick={handleNextStep}
+            onClick={handleFormNextStep}
           >
             {" "}
             Continue 2/3 <span>&gt;</span>
