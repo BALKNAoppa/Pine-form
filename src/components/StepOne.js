@@ -1,7 +1,7 @@
 import React from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
 import { isStepOneValid } from "@/utils/stepOneValidation";
-import FormInput from "./FormInputStepOne";
+import FormInput from "./FormInput";
 const StepOne = (props) => {
   const {
     handleNextStep,
@@ -25,6 +25,12 @@ const StepOne = (props) => {
     const { isValid, errors } = isStepOneValid(formValue);
 
     if (isValid) {
+      const localData = {
+        ...formValue,
+        currentStep: 1,
+      }
+      localStorage.setItem("formData", JSON.stringify(localData))
+
       handleNextStep();
     }
     handleError(errors);

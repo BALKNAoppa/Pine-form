@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
 import { isStepTwoValid } from "@/utils/StepTwoValidation";
-import FormInput from "./FormInputStepTwo";
+import FormInput from "./FormInput";
 
 const StepTwo = (props) => {
   const {
@@ -28,6 +28,12 @@ const StepTwo = (props) => {
     const { isValid, errors } = isStepTwoValid(formValue);
     console.log(errors);
     if (isValid) {
+      const localData = {
+        ...formValue,
+        currentStep: 2,
+      }
+      localStorage.setItem("formData", JSON.stringify(localData))
+
       handleNextStep();
     }
     handleError(errors);
@@ -72,7 +78,7 @@ const StepTwo = (props) => {
             title={"Confirm Password"}
             name={"confirmPassword"}
             handleChange={handleChange}
-            type="password"
+            type={"password"}
             errors={errors}
           />
         </div>

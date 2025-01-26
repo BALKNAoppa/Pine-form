@@ -1,5 +1,4 @@
 import React from "react";
-import FormInputStepTwo from "./FormInputStepTwo";
 
 const FormInput = (props) => {
     const {title, name, handleChange, errors} = props;
@@ -9,7 +8,7 @@ const FormInput = (props) => {
           {title} <span className="text-red-500">*</span>
         </label>
         <input
-          placeholder="Your firstname"
+          placeholder={title}
           name={name}
           className={`${
             errors[`${name}`].length > 0 ? "" : ""
