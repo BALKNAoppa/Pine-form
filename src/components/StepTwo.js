@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PineconeLogo from "@/icons/PineconeLogo";
 import { isStepTwoValid } from "@/utils/StepTwoValidation";
 import FormInput from "./FormInput";
@@ -30,8 +30,8 @@ const StepTwo = (props) => {
       const localData = {
         ...formValue,
         currentStep: 2,
-      }
-      localStorage.setItem("formData", JSON.stringify(localData))
+      };
+      localStorage.setItem("formData", JSON.stringify(localData));
 
       handleNextStep();
     }
@@ -46,39 +46,41 @@ const StepTwo = (props) => {
             <PineconeLogo />
             <p className="w-[416px] h-[31px] font-inter text-[26px] font-semibold leading-[31.47px] tracking[-0.03em] decoration-skip-[ink]">
               {" "}
-              Step 2 😎
+              Join us 😎
             </p>
             <p className="w-[416px] h-[22px] text-gray-500 font-inter text-[18px] font-normal leading-[21.78px]">
               Please provide all current information accurately.
             </p>
           </div>
-          <FormInput
-            title={"Email"}
-            name={"email"}
-            handleChange={handleChange}
-            errors={errors}
-          />
-          <FormInput
-            title={"Phone number"}
-            name={"phoneNumber"}
-            type="number"
-            handleChange={handleChange}
-            errors={errors}
-          />
-          <FormInput
-            title={"Password"}
-            name={"password"}
-            handleChange={handleChange}
-            errors={errors}
-            type="password"
-          />
-          <FormInput
-            title={"Confirm Password"}
-            name={"confirmPassword"}
-            handleChange={handleChange}
-            type="password"
-            errors={errors}
-          />
+          <div className="mt-[18px]">
+            <FormInput
+              title={"Email"}
+              name={"email"}
+              handleChange={handleChange}
+              errors={errors}
+            />
+            <FormInput
+              title={"Phone number"}
+              name={"phoneNumber"}
+              type="number"
+              handleChange={handleChange}
+              errors={errors}
+            />
+            <FormInput
+              title={"Password"}
+              name={"password"}
+              handleChange={handleChange}
+              errors={errors}
+              type="password"
+            />
+            <FormInput
+              title={"Confirm Password"}
+              name={"confirmPassword"}
+              handleChange={handleChange}
+              type="password"
+              errors={errors}
+            />
+          </div>
         </div>
         <div className="flex justify-between">
           <button

@@ -1,13 +1,13 @@
 export const isStepTwoValid = (data) => {
-  const { email, phoneNumber, password, confirmPassword, type } = data;
+  const { email, phoneNumber, password, confirmPassword } = data;
   console.log("the data", data);
 
   const errors = {};
   let isValid = true;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[0-9]{7}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-  const passwordMixLength = 8;
 
   if (!email || !emailRegex.test(email)) {
     errors.email = "Зөв мэйл хаяг оруулна уу";
@@ -17,11 +17,11 @@ export const isStepTwoValid = (data) => {
     errors.phoneNumber = "8 оронтой дугаар оруулна уу.";
     isValid = false;
   }
-  if (!password || password.length < passwordMixLength) {
-    errors.password = "Хамгийн багадаа 8-н тэмдэгттэй байна";
+  if (!password || !passwordRegex.test(password)) {
+    errors.password = "8 тэмдэгттэй,том, жижиг үсэг тоо агуулсан байна.";
     isValid = false;
   }
-  if (password !== confirmPassword) {
+  if (passwordRegex !== confirmPassword) {
     errors.confirmPassword = "Таны оруулсан нууц үг таарахгүй байна.";
   }
   return { isValid, errors };
