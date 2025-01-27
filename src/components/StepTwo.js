@@ -14,7 +14,6 @@ const StepTwo = (props) => {
     clearError,
   } = props;
 
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormValue((prev) => ({
@@ -38,7 +37,6 @@ const StepTwo = (props) => {
     }
     handleError(errors);
   };
-
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
@@ -78,7 +76,7 @@ const StepTwo = (props) => {
             title={"Confirm Password"}
             name={"confirmPassword"}
             handleChange={handleChange}
-            type={"password"}
+            type="password"
             errors={errors}
           />
         </div>

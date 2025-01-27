@@ -1,5 +1,5 @@
 export const isStepTwoValid = (data) => {
-  const { email, phoneNumber, password, confirmPassword } = data;
+  const { email, phoneNumber, password, confirmPassword, type } = data;
   console.log("the data", data);
 
   const errors = {};
