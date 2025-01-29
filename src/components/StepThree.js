@@ -29,7 +29,7 @@ const StepThree = (props) => {
     if (isValid) {
       const localData = {
         ...formValue,
-        currentStep: 2,
+        currentStep: 3,
       };
       localStorage.setItem("formData", JSON.stringify(localData));
 
@@ -53,15 +53,15 @@ const StepThree = (props) => {
           </div>
           <div className="mt-[18px]">
             <FormInput
-              title={"Date and Birth"}
+              title={"Date and Birt"}
               type="date"
               name={"dateBirth"}
               handleChange={handleChange}
               errors={errors}
             />
             <FormInput
-              title={"Email"}
-              name={"email"}
+              title={"Image"}
+              name={"Image"}
               type="file"
               accept="image/*"
               handleChange={handleChange}
@@ -82,7 +82,7 @@ const StepThree = (props) => {
             onClick={handleFormNextStep}
           >
             {" "}
-            Continue 3/3 <span>&gt;</span>
+            Submit <span>&gt;</span>
           </button>
         </div>
       </div>
